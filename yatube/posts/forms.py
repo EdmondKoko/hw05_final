@@ -4,6 +4,7 @@ from .models import Post, Comment
 
 
 class PostForm(forms.ModelForm):
+    """Создание формы модели Post."""
     text = forms.CharField(widget=forms.Textarea,
                            required=True,
                            label='Текст поста',
@@ -23,6 +24,7 @@ class PostForm(forms.ModelForm):
 
 
 class CommentForm(forms.ModelForm):
+    """Создание формы модели Comment."""
     class Meta:
         model = Comment
         fields = ('text',)
