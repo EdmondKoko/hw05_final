@@ -26,13 +26,13 @@
 Клонируем проект:
 
 ```bash
-git clone https://github.com/edmondkoko/yatube_v1.1_publications.git
+git clone https://github.com/edmondkoko/yatube_v1.3_subscriptions.git
 ```
 
 Переходим в папку с проектом:
 
 ```bash
-cd yatube_v1.1_publications
+cd yatube_v1.3_subscriptions
 ```
 
 Устанавливаем виртуальное окружение:
