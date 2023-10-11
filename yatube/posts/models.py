@@ -5,6 +5,7 @@ User = get_user_model()
 
 
 class Group(models.Model):
+    """Создание модели Group."""
     title = models.CharField(max_length=200,
                              verbose_name='Группа')
     slug = models.SlugField(max_length=50, unique=True,
@@ -19,6 +20,7 @@ class Group(models.Model):
 
 
 class Post(models.Model):
+    """Создание модели Post."""
     text = models.TextField(
         verbose_name='Текст поста',
         help_text='Введите текст поста'
@@ -59,6 +61,7 @@ class Post(models.Model):
 
 
 class Comment(models.Model):
+    """Создание модели Comment."""
     post = models.ForeignKey(
         Post,
         on_delete=models.CASCADE,
@@ -92,6 +95,7 @@ class Comment(models.Model):
 
 
 class Follow(models.Model):
+    """Создание модели Follow."""
     user = models.ForeignKey(
         User,
         related_name='follower',
