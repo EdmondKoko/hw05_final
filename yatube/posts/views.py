@@ -10,6 +10,7 @@ PAGINATOR_POSTS = 10
 
 
 def paginator(request, posts):
+    """Paginator. Вывод по 10 постов на страницу."""
     paginator = Paginator(posts, PAGINATOR_POSTS)
     page_number = request.GET.get('page')
     return paginator.get_page(page_number)
@@ -17,6 +18,7 @@ def paginator(request, posts):
 
 @cache_page(20)
 def index(request):
+    """Главная страница."""
     template = 'posts/index.html'
     post_list = Post.objects.select_related('group', 'author')
     page_obj = paginator(request, post_list)
@@ -28,6 +30,7 @@ def index(request):
 
 
 def group_posts(request, slug):
+    """Страница списка постов."""
     template = 'posts/group_list.html'
     group = get_object_or_404(Group, slug=slug)
     posts = group.posts.select_related('author')
@@ -40,6 +43,7 @@ def group_posts(request, slug):
 
 
 def profile(request, username):
+    """Страница профиля."""
     template = 'posts/profile.html'
     author = get_object_or_404(User, username=username)
     posts = author.posts.select_related('author', 'group')
@@ -58,6 +62,7 @@ def profile(request, username):
 
 
 def post_detail(request, post_id):
+    """Страница публикации."""
     template = 'posts/post_detail.html'
     post = get_object_or_404(Post, pk=post_id)
     post_author = post.author.posts.count()
@@ -73,6 +78,7 @@ def post_detail(request, post_id):
 
 @login_required
 def post_create(request):
+    """Страница создания публикации. Доступна если пользователь авторизован."""
     template = 'posts/create_post.html'
     form = PostForm(request.POST or None,
                     files=request.FILES or None)
@@ -89,6 +95,7 @@ def post_create(request):
 
 @login_required
 def post_edit(request, post_id):
+    """Страница редактирования публикации. Доступна если пользователь авторизован."""
     template = 'posts/create_post.html'
     post = get_object_or_404(Post, pk=post_id, )
     if post.author != request.user:
@@ -112,6 +119,7 @@ def post_edit(request, post_id):
 
 @login_required
 def add_comment(request, post_id):
+    """Добавляет комментарий к публикации."""
     post = get_object_or_404(
         Post,
         id=post_id)
@@ -131,6 +139,7 @@ def add_comment(request, post_id):
 
 @login_required
 def follow_index(request):
+    """Отображает список публикаций, на которые подписан пользователь"""
     post_list = Post.objects.filter(author__following__user=request.user)
     page_obj = paginator(request, post_list)
     context = {
@@ -142,6 +151,7 @@ def follow_index(request):
 
 @login_required
 def profile_follow(request, username):
+    """Подписка."""
     author = get_object_or_404(User, username=username)
     if author != request.user:
         Follow.objects.get_or_create(user=request.user, author=author)
@@ -150,6 +160,7 @@ def profile_follow(request, username):
 
 @login_required
 def profile_unfollow(request, username):
+    """Отписка."""
     author = get_object_or_404(User, username=username)
     follower = Follow.objects.filter(user=request.user, author=author)
     if follower.exists():
