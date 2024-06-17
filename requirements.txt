@@ -1,5 +1,5 @@
 asgiref
-Django==5.0.6
+Django
 Faker==12.0.1
 flake8==7.1.0
 flake8-broken-line==1.0.0
