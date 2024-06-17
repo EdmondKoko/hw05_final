@@ -95,7 +95,8 @@ def post_create(request):
 
 @login_required
 def post_edit(request, post_id):
-    """Страница редактирования публикации. Доступна если пользователь авторизован."""
+    """Страница редактирования публикации.
+    Доступна если пользователь авторизован."""
     template = 'posts/create_post.html'
     post = get_object_or_404(Post, pk=post_id, )
     if post.author != request.user:
