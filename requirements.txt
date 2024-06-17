@@ -9,7 +9,6 @@ flake8-return
 isort
 mccabe
 mixer
-pep8-naming==0.14.1
 pluggy==0.13.1
 py==1.11.0
 pycodestyle==2.12.0
