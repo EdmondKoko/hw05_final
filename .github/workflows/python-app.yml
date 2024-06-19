@@ -56,4 +56,4 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: edmondkoko/gigimon:latest
+          tags: edmondkoko/gigimon12:latest
