@@ -75,7 +75,7 @@ jobs:
             #остановка всех контейнеров
             sudo docker stop $(sudo docker ps -a -q)
             sudo docker run --rm -d -p 5000:5000 edmondkoko/gigimon12
-            sudo docker-compose up
+            
 
   send_message:
     runs-on: ubuntu-latest
