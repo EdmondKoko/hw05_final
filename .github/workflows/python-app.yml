@@ -67,7 +67,7 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE }} # Если, ssh-ключ защищён паролем
+          passphrase: ${{ secrets.PASSPHRASE }} # Если ssh-ключ защищён паролем
           script: |
             sudo docker pull edmondkoko/gigimon12
 #            sudo docker-compose stop
