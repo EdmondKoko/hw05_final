@@ -27,9 +27,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
-    '[::1]',
-    'testserver',
-    'web',
+    '185.189.14.53',
+    'edmondkoko.servebeer.com',
 ]
 
 # Application definition
