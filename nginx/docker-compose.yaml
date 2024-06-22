@@ -11,7 +11,7 @@ services:
     env_file:
       - ./.env
   web:
-    build: .
+    image: edmondkoko/gigimon12
     restart: always
     volumes:
       # Контейнер web будет работать с данными, хранящиеся в томе static_value, 
