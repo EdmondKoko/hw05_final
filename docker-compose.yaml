@@ -1,6 +1,6 @@
 
 # версия docker-compose
-version: '2.2'
+# version: '2.2'
 
 # имена и описания контейнеров, которые должны быть развёрнуты
 services:
@@ -15,7 +15,7 @@ services:
     env_file:
       - ./.env
   web:
-    build: .
+    image: edmondkoko/gigimon12
     restart: always
     volumes:
       # Контейнер web будет работать с данными, хранящиеся в томе static_value, 
