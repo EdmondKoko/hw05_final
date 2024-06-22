@@ -29,6 +29,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '185.189.14.53',
     'edmondkoko.servebeer.com',
+    'web',
 ]
 
 # Application definition
