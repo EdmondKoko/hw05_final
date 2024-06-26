@@ -36,7 +36,7 @@ services:
     volumes:
       - /etc/letsencrypt:/etc/letsencrypt
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-    command: certonly --webroot --webroot-path=/var/html -d yourdomain.com --email youremail@example.com --agree-tos --non-interactive
+    command: certonly --webroot --webroot-path=/var/html -d edmondkoko.servebeer.com --email edmondkoko777@gmail.com --agree-tos --non-interactive
 
 volumes:
   static_value:
