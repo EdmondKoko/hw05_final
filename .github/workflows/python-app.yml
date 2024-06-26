@@ -70,6 +70,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           passphrase: ${{ secrets.PASSPHRASE }} # Если, ваш ssh-ключ защищён паролем
           script: |
+            sudo docker system prune -a -f
             sudo docker pull edmondkoko/gigimon12:latest
             touch .env
             echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
